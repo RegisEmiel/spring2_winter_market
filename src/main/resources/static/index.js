@@ -19,7 +19,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
 
     $scope.addToCart = function (productId){
-        $http.get('http://localhost:8189/winter/api/v1/cart/'+ productId).then(function(response){
+        $http.get('http://localhost:8189/winter/api/v1/cart/additem/'+ productId).then(function(response){
             $scope.cartProducts = response.data;
         });
     }
@@ -31,7 +31,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     }
 
     $scope.deleteFromCart = function (productId){
-        $http.delete('http://localhost:8189/winter/api/v1/cart/'+ productId).then(function (response) {
+        $http.delete('http://localhost:8189/winter/api/v1/cart/deleteitem/'+ productId).then(function (response) {
             $scope.loadCartProducts();
         });
     }

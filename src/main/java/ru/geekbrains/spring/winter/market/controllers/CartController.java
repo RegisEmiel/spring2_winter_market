@@ -19,13 +19,13 @@ public class CartController {
         return cartService.findAllProductsInCart();
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/additem/{productId}")
     public List<Product> addToCart(@PathVariable Long productId) {
         cartService.addProductToCart(productId);
         return cartService.findAllProductsInCart();
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("/deleteitem/{productId}")
     public void deleteFromCart(@PathVariable Long productId) {
         cartService.deleteProductFromCart(productId);
     }
