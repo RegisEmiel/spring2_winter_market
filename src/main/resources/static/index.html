@@ -14,29 +14,54 @@
 
 <body>
 
-<div class="container" ng-controller="indexController">
-    <h1>Market</h1>
+    <div class="container" ng-controller="indexController">
+        <h1>Market</h1>
 
-    <h3>Список товаров</h3>
-    <table class="table table-hover" cellpadding="0" cellspacing="0">
-        <tr>
-            <td>ID</td>
-            <td>Название</td>
-            <td>Цена</td>
-            <td></td>
-        </tr>
-        <tbody>
-        <tr ng-repeat="p in productsList">
-            <td>{{p.id}}</td>
-            <td>{{p.title}}</td>
-            <td>{{p.price}}</td>
-            <td>
-                <button type="button" class="btn btn-primary" ng-click="showProductInfo(p.id)">Info</button>
-                <button type="button" class="btn btn-danger" ng-click="deleteProductById(p.id)">Delete</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+        <h3>Список товаров</h3>
+        <table class="table table-hover" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>ID</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td></td>
+            </tr>
+            <tbody>
+                <tr ng-repeat="p in productsList">
+                    <td>{{p.id}}</td>
+                    <td>{{p.title}}</td>
+                    <td>{{p.price}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" ng-click="showProductInfo(p.id)">Info</button>
+                        <button type="button" class="btn btn-danger" ng-click="deleteProductById(p.id)">Delete</button>
+                        <button type="button" class="btn btn-primary" ng-click="addToCart(p.id)">В корзину</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h3>Корзина</h3>
+        <table class="table table-hover" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>Идентификатор</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Количество</td>
+                <td></td>
+            </tr>
+
+            <tbody>
+                <tr ng-repeat="product in cartProducts">
+                    <td>{{product.id}}</td>
+                    <td>{{product.title}}</td>
+                    <td>{{product.price}}</td>
+                    <td>1</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" ng-click="deleteFromCart(product.id)">Удалить</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
